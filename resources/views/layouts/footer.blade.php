@@ -19,13 +19,13 @@
 <footer class="bg-light text-center">
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2021 Copyright:
         <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
     <!-- Grid container -->
-    <div class="container p-4 pb-0">
+    <div class="container p-6 pb-0">
         <!-- Section: Social media -->
         <section class="mb-4">
             <!-- Facebook -->
