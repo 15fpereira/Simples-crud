@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Contato;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class ContatoController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * https://laravel.com/docs/8.x/controllers#resource-controllers
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-        $contatos = Contato::all();
+        //Lista ordenada pelo nome : https://laravel.com/docs/8.x/eloquent#retrieving-models
+        $contatos = Contato::orderBy("name")->get();
 
         //$categorias = Categorias::all();
         return view('contato.index', compact('contatos'));
@@ -44,6 +46,7 @@ class ContatoController extends Controller
 
         $data = $request->all();
         Contato::create($data);
+        Session::flash('flash_message', 'Contato criado com sucesso! '); //messagem de sucesso!
         return redirect()->route('contatos.index');
     }
 

@@ -12,6 +12,13 @@
                     </h3>
                     <p class="lead">Lista de contato na sequência da data de cadastro.</p>
                 </div>
+                    @if(Session::has('flash_message'))
+                        <div class="alert alert-dismissible alert-success">
+                            <button type="button" class="btn-close" data-dismiss="alert"></button>
+                            <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Messagem de confirmação! </font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{Session::get('flash_message')}}</font></font><a href="#" class="alert-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Add Outro Contato?</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .
+                                </font></font>
+                        </div>
+                    @endif
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     @foreach ($contatos as $contato)
                         <div class="accordion">
@@ -21,7 +28,7 @@
                                 </button>
                             </h2>
                             <div id="flush-collapse{{$loop->iteration}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$loop->iteration}}" data-parent="#accordionFlushExample">
-                                <div class="accordion-body">Registro: {{$contato->id}} Telefone: {{$contato->telefone}}  E-mail: {{$contato->email}} <code>.accordion-flush</code>. @include('layouts.pills')</div>
+                                <div class="accordion-body">Registro: {{$contato->id}} Telefone: {{$contato->telefone}}  E-mail: {{$contato->email}} <code>.data:{{$contato->created_at}}</code>. @include('layouts.pills')</div>
                             </div>
                         </div>
                     @endforeach
