@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use Symfony\Component\HttpFoundation\Session\Session as SessionSession;
 
 class ContatoController extends Controller
 {
@@ -46,6 +46,7 @@ class ContatoController extends Controller
 
         $data = $request->all();
         Contato::create($data);
+
         Session::flash('flash_message', 'Contato criado com sucesso! '); //messagem de sucesso!
         return redirect()->route('contatos.index');
     }
@@ -90,7 +91,8 @@ class ContatoController extends Controller
         $contato->telefone = $request->telefone;
         $contato->email = $request->email;
         $contato->save();
-        return redirect()->route('contatos.index')->with('alert-success','Contatos hasbeen update!');
+        Session::flash('flash_message', 'Contatos Atualizado com sucesso!');
+        return redirect()->route('contatos.index');
     }
 
     /**
@@ -104,6 +106,7 @@ class ContatoController extends Controller
         //
         $contato = Contato::findOrFail($id);
         $contato->delete();
-        return redirect()->route('contatos.index')->with('alert-success','Contatos hasbeen deleted!');
+        Session::flash('flash_message', 'Contato deletado com sucesso!');
+        return redirect()->route('contatos.index');
     }
 }
