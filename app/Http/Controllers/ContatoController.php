@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Contato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -43,10 +42,9 @@ class ContatoController extends Controller
     public function store(Request $request)
     {
         //
-
         $data = $request->all();
+        dd($data);
         Contato::create($data);
-
         Session::flash('flash_message', 'Contato criado com sucesso! '); //messagem de sucesso!
         return redirect()->route('contatos.index');
     }

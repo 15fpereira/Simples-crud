@@ -1,26 +1,4 @@
 <div class="container-fluid" id="container-rodape">
-    <div class="container text-center">
-        <div class="row">
-            <footer class="bg-back text-center">
-                <figure class="text-center">
-                    <blockquote class="blockquote">
-                        <!-- ultimo cadastrado   -->
-                        @foreach (app\models\Contato::all() as $item )
-
-                            @if ($loop->first)
-                             <p class="mb-0" _msthash="2628171" _msttexthash="4229134"><b>{{ $item->name }}</b>: Foi o último contato cadastrado no Banco de dados. Email: {{ $item->email }} com o Telefone: {{ $item->telefone }}.</p>
-
-                            @endif
-
-                        @endforeach
-
-                    </blockquote>
-                    <figcaption class="blockquote-footer"><font _mstmutation="1" _msthash="2322372" _msttexthash="664170"> Alguém famoso em <cite title="Source Title" _mstmutation="1" _istranslated="1">Source Title</cite></font>
-                    </figcaption>
-                </figure>
-            </footer>
-        </div>
-    </div>
 
 </div>
 

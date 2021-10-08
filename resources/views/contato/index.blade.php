@@ -33,8 +33,6 @@
                         </div>
                     @endforeach
                 </div>
-
-
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
                 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
@@ -54,7 +52,6 @@
                             $(this).parent().find(".fa").removeClass("fa-minus").addClass("fa-plus");
                         });
                     });
-
                 </script>
                 <div class="container">
                     <div class="d-grid gap-2">
@@ -64,11 +61,31 @@
             </div>
             </div>
         </div>
+
+        <br>
+        <div class="container text-center">
+            <div class="row">
+                <footer class="bg-back text-center">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <!-- ultimo cadastrado   -->
+                            @foreach (app\Models\Contato::all() as $item)
+                                @if ($loop->last)
+                                    <p class="mb-0" _msthash="2628171" _msttexthash="4229134"><b>{{ $item->name }}</b>: Foi o último contato cadastrado no Banco de dados. Email: {{ $item->email }} com o Telefone: {{ $item->telefone }}.</p>
+                                @endif
+                            @endforeach
+                        </blockquote>
+                        <figcaption class="blockquote-footer"><font _mstmutation="1" _msthash="2322372" _msttexthash="664170"> Alguém famoso em <cite title="Source Title" _mstmutation="1" _istranslated="1">Source Title</cite></font>
+                        </figcaption>
+                    </figure>
+                </footer>
+            </div>
+        </div>
+        <br>
+
     </div>
 <script>
-
 </script>
-
 @endsection
 
 
